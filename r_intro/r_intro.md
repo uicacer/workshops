@@ -1066,7 +1066,7 @@ the dataset:
 
 ``` r
 # download data from url
-download.file("https://raw.githubusercontent.com/jsfalk/acer_tutorials/main/r_intro/data/animals.csv", "data/animals.csv")
+download.file("https://raw.githubusercontent.com/uicacer/workshops/main/r_intro/data/animals.csv", "data/animals.csv")
 ```
 
 The code above has two arguments, both encompassed in quotation marks:

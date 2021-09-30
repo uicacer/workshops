@@ -2,7 +2,7 @@
 ## Introduction to R #
 ######################
 
-download.file("https://raw.githubusercontent.com/jsfalk/acer_tutorials/main/r_intro/r_intro.R", "r_intro.R")
+download.file("https://raw.githubusercontent.com/uicacer/workshops/main/r_intro/r_intro.R", "r_intro.R")
 
 ################
 ## Arithmetic ##
@@ -132,7 +132,7 @@ na.omit(heights)
 # make a directory
 dir.create("data")
 # download data from url
-download.file("https://raw.githubusercontent.com/jsfalk/acer_tutorials/main/r_intro/data/animals.csv", "data/animals.csv")
+download.file("https://raw.githubusercontent.com/uicacer/workshops/main/r_intro/data/animals.csv", "data/animals.csv")
 # import data and assign to object
 animals <- read.csv("data/animals.csv")
 # assess size of data frame
