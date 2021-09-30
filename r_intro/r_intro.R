@@ -48,6 +48,11 @@ weight_lb <- 2.2 * weight_kg
 weight_kg <- 100
 weight_kg
 
+### EXERCISE ###
+# Define a variable height_in and set it equal to 72
+# Define another variable height_cm and set it equal to height_in times 2.54
+################
+
 #############
 ## Vectors ##
 #############
@@ -75,6 +80,10 @@ length(organs)
 class(organs)
 str(organs)
 
+### EXERCISE ###
+# What happens when we try to mix multiple types of data in a single vector?
+################
+
 # add a value to end of vector
 ages <- c(ages, 90) 
 print(ages)
@@ -101,6 +110,16 @@ ages[ages < 50 | ages > 60]
 # ages greater than 50 AND less than 60
 ages[ages > 50 & ages < 60]
 
+### EXERCISE ###
+# Is it possible to apply more than two conditions at once?
+# Try to select all ages that are less than 55 or between 59 and 64
+################
+
+### EXERCISE ###
+# What does the following code return, and why?
+"four" > "five"
+################
+
 ##################
 ## Missing data ##
 ##################
@@ -124,6 +143,14 @@ is.na(heights)
 heights[!is.na(heights)]
 # remove incomplete cases
 na.omit(heights)
+
+### EXERCISE ###
+# Complete the following tasks after creating this vector (Note: there are multiple solutions):
+more_heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+# 1. Remove NAs
+# 2. Calculate the median
+# 3. Identify how many elements in the vector are greater than 67
+################
 
 #################
 ## Data frames ##
@@ -159,6 +186,10 @@ head(first_row)
 # extract first column
 first_column_again <- animals[ , 1]
 head(first_column_again)
+
+### EXERCISE ###
+# What is the difference in results between the last two lines of code?
+################
 
 # extract cell from first row of first column
 single_cell <- animals[1,1]
@@ -198,6 +229,13 @@ write.csv(exclude_range, "data/animals_subset.csv")
 range(animals$weight, na.rm = TRUE)
 mean(animals$weight, na.rm = TRUE)
 
+### EXERCISES ###
+# 1. Code as many different ways possible to extract the column “genus”
+# 2. Extract the first 6 rows for only hindfoot length and species
+# 3. Calculate the range and mean for weight
+# 4. Create a data.frame (animals_200) containing only the data in row 200 of the animals dataset.
+#################
+
 #######################
 ## Data manipulation ##
 #######################
@@ -223,6 +261,14 @@ head(sel_columns3)
 filtered_rows <- filter(animals, taxa == "Rodent") 
 head(filtered_rows)
 
+### EXERCISE ###
+# Create a new object from animals called sex_taxa that includes only the sex and taxa columns
+################
+
+### EXERCISE ###
+# Create a new object from sex_taxa called sex_Rodent that includes only Rodent (taxa)
+################
+
 sex_taxa <- select(animals, sex, taxa)
 sex_rodent <- filter(sex_taxa, taxa=="Rodent")
 head(sex_rodent)
@@ -243,6 +289,11 @@ piped2 <- animals %>%
   select(sex, weight)
 head(piped2)
 
+### EXERCISE ###
+# Using pipes, subset the animals data to include animals under 5 grams
+# collected before 1995, and retain only the columns year, sex, and weight.
+################
+
 # convert grams to kilograms
 animals_kg <- animals %>%
   mutate(weight_kg = weight / 1000)
@@ -253,6 +304,13 @@ animals %>%
   mutate(weight_kg = weight / 1000,
          weight_lb = weight_kg * 2.2) %>%
   glimpse() # preview data output
+
+### EXERCISE ###
+# Create a new data frame from the surveys data that meets the following criteria:
+# contains only the species column and a new column called hindfoot_cm
+# containing the hindfoot_length values converted to centimeters.
+# In this hindfoot_cm column, there are no NAs and all values are less than 3.
+################
 
 # show categories in sex
 unique(animals$sex)
@@ -283,6 +341,16 @@ animals %>%
   group_by(sex) %>%
   summarize(mean_weight = mean(weight, na.rm=TRUE))
 
+### EXERCISE ###
+# Use group_by() and summarize() to find the mean, min, and max hindfoot length for each species.
+# Also add the number of observations (hint: see ?n).
+################
+
+### EXERCISE ###
+# What was the heaviest animal measured in each year?
+# Return the columns year, genus, species, and weight.
+################
+
 # counting number of records for each species
 species_counts <- animals %>%
   count(species) %>%
@@ -301,3 +369,7 @@ head(animals_reduced)
 
 # save results to file in data/ named animals_reduced
 write.csv(animals_reduced, "data/animals_reduced.csv")
+
+### EXERCISE ###
+# Exercise: extract all species with more than 200 examples
+################
