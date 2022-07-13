@@ -1,0 +1,29 @@
+#Step 0. If you are on an interactive compute node, logout and launch a new session
+
+  qsub -I -q acer_workshop -l nodes=1:ppn=6
+
+#Step 1. Setup the environment and compile the program
+
+  cd $HOME/workshop/exercise3
+  module load intel
+  module load VTune
+  make
+
+#Step 2. Set the number of processors to run
+
+  export OMP_NUM_THREADS=6
+
+#Step 4. Run the vtune profiler
+
+  vtune -collect hotspots -r results -- ./nbody.x
+  vtune -report hotspots -r results results/results.vtune
+
+#Step 5. View the results. Click on the "Interactive Apps" tab and launch the "Interactive Desktop" App
+#        Once the app has started, open a Terminal within the Desktop
+#
+  cd $HOME/workshop/exercise3
+  module load VTune
+  vtune-gui
+
+
+ 

@@ -1,0 +1,24 @@
+#Step 1. Enable profiling during compilation (use -pg option)
+
+  g++ -g -pg -o matmul matmul.cpp
+
+#Step 2. Execute the binary so that profiling data is generated
+
+  ./matmul
+
+#If the profiling is enabled then on executing the program, file gmon.out will be generated.
+
+  ls
+
+#Step 3. Run gprof on profiling data
+
+  gprof -b    ./matmul gmon.out > gprof_default.txt
+  gprof -b -l ./matmul gmon.out > gprof_line.txt
+  gprof -b -A ./matmul gmon.out > gprof_annotated.txt
+
+#This will give an human readable file. This file contains two tables: 
+#flat profile: overview of the timing information of the functions 
+#call graph: focuses on each function 
+
+#-b option will suppress lot of verbose information which would be otherwise included in analysis file.
+ 

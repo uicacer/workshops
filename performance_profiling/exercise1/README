@@ -1,0 +1,38 @@
+#Timer example in C++
+
+#  Step 0: load the GCC and time modules
+
+module load GCC/10.2.0
+module load time
+
+#  Step 1: Compile matmul_ex1.cpp for the three scenarios using gcc default options:
+
+g++ -DNAIVE matmul_ex1.cpp -o matmul_naive
+g++ -DINTERCHANGE matmul_ex1.cpp -o matmul_interchange
+g++ -DONED matmul_ex1.cpp -o matmul_oned
+
+# Step2: Find the execution times for the three scenarios using the time function. Write done the execution time for each scenario
+
+time -p ./matmul_naive
+time -p ./matmul_interchange
+time -p ./matmul_oned
+
+# Step 3: Recompile the code with optimization flag -O2 and rerun the timing measurements
+
+g++ -O2 -DNAIVE matmul_ex1.cpp -o matmul_naive
+g++ -O2 -DINTERCHANGE matmul_ex1.cpp -o matmul_interchange
+g++ -O2 -DONED matmul_ex1.cpp -o matmul_oned
+
+time -p ./matmul_naive
+time -p ./matmul_interchange
+time -p ./matmul_oned
+
+# Step 3: Recompile the code with optimization flag -03 and rerun the timing measurements
+
+g++ -O3 -DNAIVE matmul_ex1.cpp -o matmul_naive
+g++ -O3 -DINTERCHANGE matmul_ex1.cpp -o matmul_interchange
+g++ -O3 -DONED matmul_ex1.cpp -o matmul_oned
+
+time -p ./matmul_naive
+time -p ./matmul_interchange
+time -p ./matmul_oned
