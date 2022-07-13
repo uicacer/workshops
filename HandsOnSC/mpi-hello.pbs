@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -N hello_mpi
+#PBS -l walltime=00:10:00
+#PBS -l nodes=2:ppn=4
+#PBS -q debug
+#PBS -j oe
+#
+# Move to the directory where the job was submitted
+#
+cd $PBS_O_WORKDIR
+#
+#  setup MPI programming environment
+#
+module load compilers/intel
+
+#
+# Build mpi job with compiler wrapper
+#
+# mpicc -O2 mpi-hello.c -o mpi-hello
+#
+# Run mpi job
+#
+mpirun -machinefile $PBS_NODEFILE -np $PBS_NP ./mpi-hello
+
