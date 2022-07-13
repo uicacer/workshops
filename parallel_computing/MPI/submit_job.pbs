@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#PBS -l walltime=0:10:00
+#PBS -l nodes=1:ppn=10
+#PBS -N numint 
+#PBS -q ood
+#PBS -j oe
+
+module load OpenMPI/3.1.4-GCC-8.3.0
+
+export OMPI_MCA_mca_base_component_show_load_errors=0
+export PMIX_MCA_mca_base_component_show_load_errors=0
+# module list
+#
+# Move to the directory where the job was submitted
+#
+cd $PBS_O_WORKDIR
+
+mpicxx -O2 numericalInt.cxx -o numericalInt
+
+mpirun -machinefile $PBS_NODEFILE -np $PBS_NP ./numericalInt
+echo "Done"
