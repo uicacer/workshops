@@ -16,6 +16,6 @@ echo "Job ID: $SLURM_JOB_ID"                     # Unique job ID assigned by SLU
 echo "Partition: $SLURM_JOB_PARTITION"           # Which partition/queue the job is running on
 
 # Your actual computational work goes here
-python my_script.py                               # Run your Python script
+python example_1_code.py                               # Run your Python script
 
 echo "Job finished at: $(date)"                  # Record when the job completed
