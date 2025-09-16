@@ -6,7 +6,7 @@
 #SBATCH --nodes=1              # Use 1 compute node
 #SBATCH --ntasks=1             # Run 1 task (process)
 #SBATCH --partition=batch_gpu  # Submit to GPU partition
-#SBATCH --gpus-per-node=1      # Request 1 GPU
+#SBATCH --gres=gpu:1g.10gb:1   # Request 1 GPU
 #SBATCH --account=ts_acer_chi  # Billing account
 #SBATCH --output=output_from_example_3_cuda.txt  # Output file
 
