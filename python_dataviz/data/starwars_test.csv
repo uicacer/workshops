@@ -1,0 +1,9 @@
+name,Gender,Height,weight,jedi,Species,Weapon
+Luke Skywalker,Male,1.72,77,jedi,Human,Lightsaber
+Leia Skywalker,Female,1.5,49,no_jedi,Human,Blaster
+Obi-wan Kenobi,Male,1.82,77,jedi,Human,Lightsaber
+Han Solo,Male,1.8,80,no_jedi,Human,Blaster
+R2-D2,Male,0.96,32,no_jedi,Droid,Unarmed
+C-3PO,Male,1.67,75,no_jedi,Droid,Unarmed
+Yoda,Male,0.66,17,jedi,Yoda,Lightsaber
+Chewbacca,Male,2.28,112,no_jedi,Wookiee,Bowcaster
